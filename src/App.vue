@@ -1,32 +1,50 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <v-app>
+
+	<v-app-bar app color="primary">
+
+	  <a href="/">
+		<v-icon x-large dark>mdi-home</v-icon>
+	  </a>
+
+	  <v-spacer></v-spacer>
+
+	  <nav class="navigation">
+		<v-btn to="/groups/1" outlined dark>Младшая группа</v-btn>
+		<v-btn to="/groups/2" outlined dark>Средняя группа</v-btn>
+		<v-btn to="/groups/3" outlined dark>Старшая группа</v-btn>
+
+		<v-btn to="/quizzes/create" outlined dark>Создать викторину</v-btn>
+		<v-btn to="/quizzes/show" outlined dark>Проверка результатов</v-btn>
+	  </nav>
+
+	  <v-spacer></v-spacer>
+
+	  <a href="/profile">
+		<v-icon x-large dark>mdi-account-circle</v-icon>
+	  </a>
+
+	</v-app-bar>
+
+	<v-main>
+	  <router-view />
+	</v-main>
+
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend( {} )
+</script>
+
+<style>
+
+.navigation {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 20px;
 }
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>
